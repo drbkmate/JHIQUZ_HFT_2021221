@@ -23,7 +23,9 @@ namespace JHIQUZ_HFT_2021221.Models
 
         [NotMapped] 
         public virtual Brand Brand { get; set; }
+
         public int BrandId { get; set; }
+
 
         //
         [NotMapped]
