@@ -44,10 +44,10 @@ namespace JHIQUZ_HFT_2021221.Data
                     .WithMany(brand => brand.Cars)
                     .HasForeignKey(car => car.BrandId)
                     .OnDelete(DeleteBehavior.ClientSetNull);
-
+ 
 
             });
-            //
+            /*
             modelBuilder.Entity<Engine>(entity =>
             {
                 entity.HasOne(engine => engine.Car)
@@ -55,7 +55,7 @@ namespace JHIQUZ_HFT_2021221.Data
                     .HasForeignKey(engine => engine.CarId)
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
-            //
+            */
             Engine gas1 = new Engine() { Id = 1, Ccm = 2000, Fuel = FuelType.Gasoline };
             Engine gas2 = new Engine() { Id = 2, Ccm = 1800,Fuel = FuelType.Gasoline };
             Engine diesel1 = new Engine() { Id = 3, Ccm = 2200, Fuel = FuelType.Diesel };
@@ -73,6 +73,10 @@ namespace JHIQUZ_HFT_2021221.Data
             Car audi1 = new Car() { Id = 5, BrandId = audi.Id, BasePrice = 20000, Model = "Audi A3", Engines = { gas1, gas2  } };
             Car audi2 = new Car() { Id = 6, BrandId = audi.Id, BasePrice = 25000, Model = "Audi A4", Engines = { gas1, gas2, diesel1 } };
             Car ford1 = new Car() { Id = 7, BrandId = ford.Id, BasePrice=9000, Model = "Ford Mondeo", Engines = { gas1, diesel1 } };
+
+            modelBuilder.Entity<Engine>().HasData(gas1, gas2, diesel1);
+            modelBuilder.Entity<Brand>().HasData(bmw, citroen, audi,ford);
+            modelBuilder.Entity<Car>().HasData(bmw1, bmw2, citroen1, citroen2, audi1, audi2,ford1);
 
         }
     }
