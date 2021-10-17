@@ -26,14 +26,9 @@ namespace JHIQUZ_HFT_2021221.Models
 
         public int BrandId { get; set; }
 
+        //[NotMapped]
+        //public virtual Engine Engine { get; set; }
 
-        //
-        [NotMapped]
-        public virtual ICollection<Engine> Engines { get; set; }
-
-        public Car()
-        {
-            Engines = new HashSet<Engine>();
-        }
+        public int EngineId { get; set; }
     }
 }
