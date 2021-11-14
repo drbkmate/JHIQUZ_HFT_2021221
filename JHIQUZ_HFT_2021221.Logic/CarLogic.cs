@@ -31,6 +31,14 @@ namespace JHIQUZ_HFT_2021221.Logic
                 .GroupBy(x => x.Brand)
                 .Select(x => new KeyValuePair<string, double>(x.Key.Name, x.Average(c => c.BasePrice) ?? 0));
         }
+        public IEnumerable<KeyValuePair<string, double>> AverageBmwPrices()
+        {
+            return repo
+                .ReadAll()
+                .Where(y => y.Brand.Name == "BMW")
+                .GroupBy(x => x.Brand)
+                .Select(x => new KeyValuePair<string, double>(x.Key.Name, x.Average(c => c.BasePrice) ?? 0));
+        }
 
     }
 }
