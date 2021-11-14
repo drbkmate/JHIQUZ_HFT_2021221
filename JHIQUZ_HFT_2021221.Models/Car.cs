@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace JHIQUZ_HFT_2021221.Models
 {
     [Table("cars")]
-    public class Car : IModel
+    public class Car 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
