@@ -10,7 +10,6 @@ namespace JHIQUZ_HFT_2021221.Logic
     {
         double AveragePrice();
 
-        IEnumerable<KeyValuePair<string, double>>
-            AveragePricesByBrands();
+        IEnumerable<KeyValuePair<string, double>> AveragePricesByBrands();
     }
 }
