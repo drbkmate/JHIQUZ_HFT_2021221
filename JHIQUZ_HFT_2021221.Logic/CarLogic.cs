@@ -21,7 +21,7 @@ namespace JHIQUZ_HFT_2021221.Logic
         {
             return repo
                 .ReadAll()
-                .Average(c => c.BasePrice) ?? 0; // double.NaN
+                .Average(c => c.BasePrice) ?? 0;
         }
 
         public IEnumerable<KeyValuePair<string, double>> AveragePricesByBrands()
@@ -48,14 +48,23 @@ namespace JHIQUZ_HFT_2021221.Logic
                 .Select(x => new KeyValuePair<string, int>(x.Key.Name, x.Max(c => c.BasePrice) ?? 0));
         }
         //Biggest ccm engines by models
-        /*public IEnumerable<KeyValuePair<string, int>> BiggestEnginesByBrands()
+        public IEnumerable<KeyValuePair<string, int>> BiggestEnginesByModels()
         {
             
             return repo
                 .ReadAll()
-                .GroupBy(x => x.Model)
-                .Select(x => new KeyValuePair<string, int>(x.Key, x.Where);
-                //.Select(x => new KeyValuePair<string, int>(x.Key.Name, x.Max(c => c.EngineId) ?? 0));
-        }*/
+                .GroupBy(x => x.Engine)
+                .Select(x => new KeyValuePair<string, int>(x.Key.Car.Model, x.Max(e=>e.Engine.Ccm)));
+        }
+        
+        public IEnumerable<KeyValuePair<string, int>> DieselEngineAudies()
+        {
+
+            return repo
+                .ReadAll()
+                .Where(c => c.Model.ToLower().Contains("audi") && c.Engine.Fuel == FuelType.Diesel)
+                .GroupBy(x => x.Engine)
+                .Select(x => new KeyValuePair<string, int>(x.Key.Car.Model, x.Key.Ccm));
+        }
     }
 }
