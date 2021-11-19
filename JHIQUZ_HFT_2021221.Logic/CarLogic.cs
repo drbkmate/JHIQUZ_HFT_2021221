@@ -66,5 +66,29 @@ namespace JHIQUZ_HFT_2021221.Logic
                 .GroupBy(x => x.Engine)
                 .Select(x => new KeyValuePair<string, int>(x.Key.Car.Model, x.Key.Ccm));
         }
+        //crrud
+        public void Create(Car car)
+        {
+            repo.Create(car);
+        }
+
+        public void Delete(int carId)
+        {
+            repo.Delete(carId);
+        }
+
+        public IQueryable<Car> ReadAll()
+        {
+            return repo.ReadAll();
+        }
+
+        public void Update(Car car)
+        {
+            repo.Update(car);
+        }
+        public void ReadOne(int carId)
+        {
+            repo.ReadOne(carId);
+        }
     }
 }
