@@ -62,6 +62,15 @@ namespace JHIQUZ_HFT_2021221.Test
             double avg = logic.AveragePrice();
             Assert.That(avg, Is.EqualTo(5650));
         }
+        [Test]
+        public void CheckAveragePricesByBrands()
+        {
+            var apbb = logic.AveragePricesByBrands();
 
+            Assert.That(apbb.Where(x => x.Key == "BMW"), Is.EqualTo(apbb.Where(x => x.Value == 5500)));
+            Assert.That(apbb.Where(x => x.Key == "Audi"), Is.EqualTo(apbb.Where(x => x.Value == 5725)));
+
+
+        }
     }
 }
