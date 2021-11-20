@@ -11,5 +11,9 @@ namespace JHIQUZ_HFT_2021221.Logic
         double AveragePrice();
 
         IEnumerable<KeyValuePair<string, double>> AveragePricesByBrands();
+        IEnumerable<KeyValuePair<string, double>> AverageBmwPrices();
+        IEnumerable<KeyValuePair<string, int>> MostExpensiveByBrands();
+        IEnumerable<KeyValuePair<string, int>> BiggestEnginesByModels();
+        IEnumerable<KeyValuePair<string, int>> DieselEngineAudies();
     }
 }
