@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JHIQUZ_HFT_2021221.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,11 @@ namespace JHIQUZ_HFT_2021221.Logic
         IEnumerable<KeyValuePair<string, int>> MostExpensiveByBrands();
         IEnumerable<KeyValuePair<string, int>> BiggestEnginesByModels();
         IEnumerable<KeyValuePair<string, int>> DieselEngineAudies();
+
+        void Create(Car car);
+        Car ReadOne(int id);
+        IQueryable<Car> ReadAll();
+        void Update(Car car);
+        void Delete(int carId);
     }
 }

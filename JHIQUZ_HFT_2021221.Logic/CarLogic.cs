@@ -86,9 +86,9 @@ namespace JHIQUZ_HFT_2021221.Logic
         {
             repo.Update(car);
         }
-        public void ReadOne(int carId)
+        public Car ReadOne(int carId)
         {
-            repo.ReadOne(carId);
+            return repo.ReadOne(carId);
         }
     }
 }
