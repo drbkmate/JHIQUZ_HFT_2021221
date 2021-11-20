@@ -70,7 +70,14 @@ namespace JHIQUZ_HFT_2021221.Test
             Assert.That(apbb.Where(x => x.Key == "BMW"), Is.EqualTo(apbb.Where(x => x.Value == 5500)));
             Assert.That(apbb.Where(x => x.Key == "Audi"), Is.EqualTo(apbb.Where(x => x.Value == 5725)));
 
-
         }
+        [Test]
+        public void CheckAverageBmwPrices()
+        {
+            var abp = logic.AverageBmwPrices();
+            Assert.That(abp.Where(x => x.Key == "BMW"), Is.EqualTo(abp.Where(x => x.Value == 5500)));
+        }
+
+
     }
 }
