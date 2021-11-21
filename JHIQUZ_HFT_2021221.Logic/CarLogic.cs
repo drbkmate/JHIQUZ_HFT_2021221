@@ -87,7 +87,12 @@ namespace JHIQUZ_HFT_2021221.Logic
 
         public IQueryable<Car> ReadAll()
         {
-            return repo.ReadAll();
+            var s = repo.ReadAll();
+            if (s is null)
+            {
+                throw new InvalidOperationException("Repository is empty");
+            }
+            return s;
         }
 
         public void Update(Car car)
