@@ -69,11 +69,19 @@ namespace JHIQUZ_HFT_2021221.Logic
         //crrud
         public void Create(Car car)
         {
+            if (car == null)
+            {
+                throw new ArgumentNullException("Argument can't be null");
+            }
             repo.Create(car);
         }
 
         public void Delete(int carId)
         {
+            if (carId <= 0)
+            {
+                throw new ArgumentException("carId must be greater than 0");
+            }
             repo.Delete(carId);
         }
 
@@ -84,10 +92,18 @@ namespace JHIQUZ_HFT_2021221.Logic
 
         public void Update(Car car)
         {
+            if (car == null)
+            {
+                throw new ArgumentNullException("Argument can't be null");
+            }
             repo.Update(car);
         }
         public Car ReadOne(int carId)
         {
+            if (carId <= 0)
+            {
+                throw new ArgumentException("carId must be greater than 0");
+            }
             return repo.ReadOne(carId);
         }
     }
