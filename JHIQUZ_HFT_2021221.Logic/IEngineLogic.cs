@@ -11,10 +11,10 @@ namespace JHIQUZ_HFT_2021221.Logic
     {
         double AverageCcm();
 
-        void Create(Engine car);
+        void Create(Engine engine);
         Engine ReadOne(int id);
         IQueryable<Engine> ReadAll();
-        void Update(Engine car);
+        void Update(Engine engine);
         void Delete(int engineId);
     }
 }
