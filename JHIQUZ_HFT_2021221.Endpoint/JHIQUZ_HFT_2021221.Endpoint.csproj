@@ -11,4 +11,8 @@
     <ProjectReference Include="..\JHIQUZ_HFT_2021221.Repository\JHIQUZ_HFT_2021221.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
