@@ -1,3 +1,6 @@
+using JHIQUZ_HFT_2021221.Data;
+using JHIQUZ_HFT_2021221.Logic;
+using JHIQUZ_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,7 +21,9 @@ namespace JHIQUZ_HFT_2021221.Endpoint
         {
             services.AddControllers();
 
-            //services.AddTransient();
+            services.AddTransient<ICarLogic,CarLogic>();
+            services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<CarShopContext, CarShopContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
