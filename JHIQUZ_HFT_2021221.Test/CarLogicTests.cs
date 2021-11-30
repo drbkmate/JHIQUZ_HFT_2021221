@@ -32,24 +32,28 @@ namespace JHIQUZ_HFT_2021221.Test
                 .Returns(new List<Car>
                 {
                     new Car() {
+                        Id=1,
                         BasePrice = 5000,
                         Brand = b1,
                         Engine = e1,
                         Model = "5 series"
                     },
                     new Car() {
+                        Id=2,
                         BasePrice = 6000,
                         Brand = b1,
                         Engine = e2,
                         Model = "5 series"
                     },
                     new Car() {
+                        Id=3,
                         BasePrice = 4500,
                         Brand = b2,
                         Engine = e3,
                         Model = "A4"
                     },
                     new Car() {
+                        Id=4,
                         BasePrice = 7700,
                         Brand = b2,
                         Engine = e4,
@@ -57,6 +61,7 @@ namespace JHIQUZ_HFT_2021221.Test
 
                     },
                     new Car() {
+                        Id=5,
                         BasePrice = 7500,
                         Brand = b2,
                         Engine = e1,
@@ -64,6 +69,7 @@ namespace JHIQUZ_HFT_2021221.Test
 
                     },
                     new Car() {
+                        Id=6,
                         BasePrice = 3200,
                         Brand = b2,
                         Engine = e2,
@@ -120,6 +126,25 @@ namespace JHIQUZ_HFT_2021221.Test
             var dea = logic.DieselEngineAudies();
             Assert.That(dea.Where(x => x.Key == "Audi"), Is.EqualTo(dea.Where(x => x.Value == 2200)));
             Assert.That(dea.Where(x => x.Key == "Audi"), Is.EqualTo(dea.Where(x => x.Value == 1900)));
+        }
+        /*
+        [Test]
+        public void CheckCreate()
+        {
+            var carAvgPriceBeforeCreate = logic.AveragePrice();
+            logic.Create(new Car() { Id = 10, BasePrice = 10000, Model = "Ford fiesta" });
+            var carAvgPriceAfterCreate = logic.AveragePrice();
+            //nok
+            //Assert.That(carAvgPriceBeforeCreate , !Is.EqualTo(carAvgPriceAfterCreate));
+            Assert.AreNotEqual(carAvgPriceBeforeCreate , carAvgPriceAfterCreate);
+        }*/
+
+        [Test]
+        public void CheckDelete()
+        {
+            logic.Delete(1);
+            var s = logic.ReadAll();
+            Assert.IsNull(s.First(x => x.Id == 1));
         }
     }
 }
