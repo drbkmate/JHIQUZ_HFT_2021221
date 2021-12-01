@@ -172,8 +172,8 @@ namespace JHIQUZ_HFT_2021221.Test
         public void CheckDelete()
         {
             logic.Delete(1);
-            var s = logic.ReadAll();
-            Assert.IsNull(s.First(x => x.Id == 1));
+            Assert.That(logic.ReadOne(1), Is.Null);
+            
         }
     }
 }
