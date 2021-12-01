@@ -127,6 +127,35 @@ namespace JHIQUZ_HFT_2021221.Test
             Assert.That(dea.Where(x => x.Key == "Audi"), Is.EqualTo(dea.Where(x => x.Value == 2200)));
             Assert.That(dea.Where(x => x.Key == "Audi"), Is.EqualTo(dea.Where(x => x.Value == 1900)));
         }
+
+        [Test]
+        public void CheckReadOne()
+        {
+            var r = logic.ReadOne(2);
+            Assert.That(logic.ReadOne(2), Is.EqualTo(r));
+        }
+
+        [Test]
+        public void CheckReadAll()
+        {
+            var r = logic.ReadAll();
+            Assert.That(logic.ReadAll(), Is.EqualTo(r));
+        }
+        [Test]
+        public void CheckUpdate()
+        {
+            Car s = new Car
+            {
+                Id = 2,
+                BasePrice = 5000,
+                Brand = new Brand() { Name = "BMW" },
+                Engine = new Engine() { Ccm = 2200, Fuel = FuelType.Diesel },
+                Model = "5 series"
+            };
+            logic.Update(s);
+            Assert.That(logic.ReadOne(s.Id), Is.EqualTo(logic.ReadOne(2)));
+        }
+
         /*
         [Test]
         public void CheckCreate()
