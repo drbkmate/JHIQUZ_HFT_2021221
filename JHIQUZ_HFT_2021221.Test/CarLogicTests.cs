@@ -129,17 +129,16 @@ namespace JHIQUZ_HFT_2021221.Test
         }
 
         [Test]
-        public void CheckReadOne()
+        public void CheckReadOneException()
         {
-            var r = logic.ReadOne(2);
-            Assert.That(logic.ReadOne(2), Is.EqualTo(r));
+            Assert.That(() => logic.ReadOne(0), Throws.TypeOf<ArgumentException>());
         }
 
         [Test]
-        public void CheckReadAll()
+        public void CheckReadAll() 
         {
-            var r = logic.ReadAll();
-            Assert.That(logic.ReadAll(), Is.EqualTo(r));
+            var r = logic.ReadAll().Count();
+            Assert.That(r, Is.EqualTo(6));
         }
         [Test]
         public void CheckUpdate()
@@ -156,17 +155,17 @@ namespace JHIQUZ_HFT_2021221.Test
             Assert.That(logic.ReadOne(s.Id), Is.EqualTo(logic.ReadOne(2)));
         }
 
-        /*
+        
         [Test]
-        public void CheckCreate()
+        public void CheckCreateException()
         {
-            var carAvgPriceBeforeCreate = logic.AveragePrice();
-            logic.Create(new Car() { Id = 10, BasePrice = 10000, Model = "Ford fiesta" });
-            var carAvgPriceAfterCreate = logic.AveragePrice();
-            //nok
-            //Assert.That(carAvgPriceBeforeCreate , !Is.EqualTo(carAvgPriceAfterCreate));
-            Assert.AreNotEqual(carAvgPriceBeforeCreate , carAvgPriceAfterCreate);
-        }*/
+            Assert.That(() => logic.Create(
+                new Car { 
+                    BasePrice = 10000,
+                    BrandId = 1,
+                    EngineId = 1
+                }), Throws.TypeOf<ArgumentNullException>());
+        }
 
         [Test]
         public void CheckDelete()

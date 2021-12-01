@@ -69,9 +69,9 @@ namespace JHIQUZ_HFT_2021221.Logic
         //crrud
         public void Create(Car car)
         {
-            if (car == null)
+            if (car.Id == null || car.Model == "" ||car.Model is null)
             {
-                throw new ArgumentNullException("Argument can't be null");
+                throw new ArgumentNullException("Model and Id can't be null");
             }
             repo.Create(car);
         }
