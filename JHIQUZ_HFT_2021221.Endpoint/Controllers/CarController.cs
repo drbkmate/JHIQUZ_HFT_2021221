@@ -24,14 +24,14 @@ namespace JHIQUZ_HFT_2021221.Endpoint.Controllers
             this.logic = logic;
         }
 
-        //OK
+
         // URL: /car
         [HttpGet]
         public IEnumerable<Car> ReadAllCars()
         {            
             return logic.ReadAll();
         }
-        //
+
         //URL: /car/{carId}
         [HttpGet("{carId}")]
         public Car ReadOneCar([FromRoute] int carId)
@@ -39,7 +39,7 @@ namespace JHIQUZ_HFT_2021221.Endpoint.Controllers
             return logic.ReadOne(carId);
         }
 
-        //NOK
+
         // URL: /car
         [HttpPost] 
         public void CreateCar(Car car)
@@ -47,7 +47,7 @@ namespace JHIQUZ_HFT_2021221.Endpoint.Controllers
             logic.Create(car);
         }
 
-        //OK    
+  
         //URL: /car/{carId}
         [HttpDelete("{carId}")]
         public void DeleteCar([FromRoute] int carId)
@@ -55,7 +55,7 @@ namespace JHIQUZ_HFT_2021221.Endpoint.Controllers
             logic.Delete(carId);
         }
 
-        //OK
+
         [HttpPut]
         public void UpdateCar([FromBody] Car car)
         {

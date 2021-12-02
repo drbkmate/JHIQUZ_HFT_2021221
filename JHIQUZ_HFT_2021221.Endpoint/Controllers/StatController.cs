@@ -18,37 +18,37 @@ namespace JHIQUZ_HFT_2021221.Endpoint.Controllers
             this.logic = logic;
         }
 
-        [HttpGet] //stat/avgprice
+        [HttpGet] //stat/GetAvgPrice
         public double GetAvgPrice()
         {
             return logic.AveragePrice();
         }
 
-        [HttpGet] //stat/avgpricesbybrands
+        [HttpGet] //stat/GetAvgPricesByBrands
         public IEnumerable<KeyValuePair<string,double>> GetAvgPricesByBrands()
         {
             return logic.AveragePricesByBrands();
         }
 
-        [HttpGet] //stat/avgbmwprices
+        [HttpGet] //stat/GetAverageBmwPrices
         public IEnumerable<KeyValuePair<string, double>> GetAverageBmwPrices()
         {
             return logic.AverageBmwPrices();
         }
 
-        [HttpGet] //stat/mostexpensivebybrands
+        [HttpGet] //stat/GetMostExpensiveByBrands
         public IEnumerable<KeyValuePair<string, int>> GetMostExpensiveByBrands()
         {
             return logic.MostExpensiveByBrands();
         }
 
-        [HttpGet] //stat/biggestenginesbymodels
+        [HttpGet] //stat/GetBiggestEnginesByModels
         public IEnumerable<KeyValuePair<string, int>> GetBiggestEnginesByModels()
         {
             return logic.BiggestEnginesByModels();
         }
 
-        [HttpGet] //stat/avgccmdieselengineaudies
+        [HttpGet] //stat/GetAvgCcmDieselEngineAudies
         public IEnumerable<KeyValuePair<string, double>> GetAvgCcmDieselEngineAudies()
         {
             return logic.AvgCcmDieselEngineAudies();

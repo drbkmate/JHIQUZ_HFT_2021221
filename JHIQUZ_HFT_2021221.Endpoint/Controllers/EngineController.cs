@@ -18,7 +18,7 @@ namespace JHIQUZ_HFT_2021221.Logic
         {
             this.logic = logic;
         }
-        //OK
+
         // URL: /engine
         [HttpGet]
         public IEnumerable<Engine> ReadAllEngines()
@@ -31,7 +31,7 @@ namespace JHIQUZ_HFT_2021221.Logic
         {
             return logic.ReadOne(engineId);
         }
-        //
+
         // URL: /engine
         [HttpPost]
         public void CreateEngine(Engine engine)
@@ -39,7 +39,7 @@ namespace JHIQUZ_HFT_2021221.Logic
             logic.Create(engine);
         }
 
-        //OK    
+    
         //URL: /engine/{engineId}
         [HttpDelete("{engineId}")]
         public void DeleteEngine([FromRoute] int engineId)
@@ -47,7 +47,6 @@ namespace JHIQUZ_HFT_2021221.Logic
             logic.Delete(engineId);
         }
 
-        //OK
         [HttpPut]
         public void UpdateEngine([FromBody] Engine engine)
         {
