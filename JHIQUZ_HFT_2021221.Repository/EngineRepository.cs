@@ -47,8 +47,7 @@ namespace JHIQUZ_HFT_2021221.Repository
 
             old.Ccm = engine.Ccm;
             old.Fuel = engine.Fuel;
-            old.Car = engine.Car;
-            old.CarId = engine.CarId;
+            old.Cars = engine.Cars;
 
             context.SaveChanges();
         }

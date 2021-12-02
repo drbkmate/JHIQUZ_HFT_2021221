@@ -53,18 +53,18 @@ namespace JHIQUZ_HFT_2021221.Logic
             
             return repo
                 .ReadAll()
-                .GroupBy(x => x.Engine)
-                .Select(x => new KeyValuePair<string, int>(x.Key.Car.Model, x.Max(e=>e.Engine.Ccm)));
+                .GroupBy(x => x.Model)
+                .Select(x => new KeyValuePair<string, int>(x.Key, x.Max(e=>e.Engine.Ccm)));
         }
         
-        public IEnumerable<KeyValuePair<string, int>> DieselEngineAudies()
+        public IEnumerable<KeyValuePair<string, double>> AvgCcmDieselEngineAudies()
         {
 
             return repo
                 .ReadAll()
-                .Where(c => c.Model.ToLower().Contains("audi") && c.Engine.Fuel == FuelType.Diesel)
-                .GroupBy(x => x.Engine)
-                .Select(x => new KeyValuePair<string, int>(x.Key.Car.Model, x.Key.Ccm));
+                .Where(c => c.Brand.Name.ToLower().Contains("audi") && c.Engine.Fuel == FuelType.Diesel)
+                .GroupBy(x => x.Model)
+                .Select(x => new KeyValuePair<string, double>(x.Key, x.Average(e => e.Engine.Ccm)));
         }
         //crrud
         public void Create(Car car)
