@@ -30,5 +30,11 @@ namespace JHIQUZ_HFT_2021221.Models
         public virtual Engine Engine { get; set; }
 
         public int EngineId { get; set; }
+        [NotMapped]
+        private static int IdCount = 0;
+        public Car()
+        {
+            Id = ++IdCount;
+        }
     }
 }
