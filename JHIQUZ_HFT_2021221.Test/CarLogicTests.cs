@@ -121,11 +121,10 @@ namespace JHIQUZ_HFT_2021221.Test
         }*/
         
         [Test]
-        public void CheckDieselEngineAudies()
+        public void CheckAvgCcmDieselEngineAudies()
         {
-            var dea = logic.DieselEngineAudies();
-            Assert.That(dea.Where(x => x.Key == "Audi"), Is.EqualTo(dea.Where(x => x.Value == 2200)));
-            Assert.That(dea.Where(x => x.Key == "Audi"), Is.EqualTo(dea.Where(x => x.Value == 1900)));
+            var dea = logic.AvgCcmDieselEngineAudies();
+            Assert.That(dea.Where(x => x.Key == "A4"), Is.EqualTo(dea.Where(x => x.Value == 2050)));
         }
 
         [Test]
