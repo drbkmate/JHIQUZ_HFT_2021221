@@ -41,10 +41,14 @@ namespace JHIQUZ_HFT_2021221.Data
             modelBuilder.Entity<Car>(entity =>
             {
                 entity.HasOne(car => car.Brand)
-                    .WithMany(brand => brand.Cars)
-                    .HasForeignKey(car => car.BrandId)
-                    .HasForeignKey(car => car.EngineId)
+                    .WithMany(brand => brand.Cars)                    
+                    .HasForeignKey(car => car.BrandId)             
                     .OnDelete(DeleteBehavior.ClientSetNull);// később lehet módosítani kell hogy a.SaveChanges() ne dobjon exception - t
+
+                entity.HasOne(c => c.Engine)
+                .WithMany(e => e.Cars)
+                .HasForeignKey(car => car.EngineId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             modelBuilder.Entity<Engine>(entity =>
@@ -53,7 +57,7 @@ namespace JHIQUZ_HFT_2021221.Data
                 .WithOne(c => c.Engine)
                 .OnDelete(DeleteBehavior.ClientSetNull);//később lehet módosítani kell hogy a .SaveChanges() ne dobjon exception-t
             });
-
+            
             modelBuilder.Entity<Brand>(entity =>
             {
                 entity.HasMany(b => b.Cars)
@@ -71,13 +75,13 @@ namespace JHIQUZ_HFT_2021221.Data
             Brand ford = new Brand() { Id = 4, Name = "Ford" };
 
 
-            Car bmw1 = new Car() { Id = 1, BrandId = bmw.Id, BasePrice = 20000, Model = "1 series", EngineId=gas2.Id, Engine = gas2 };
-            Car bmw2 = new Car() { Id = 2, BrandId = bmw.Id, BasePrice = 30000, Model = "5 series" , EngineId = diesel1.Id, Engine = diesel1 };
-            Car citroen1 = new Car() { Id = 3, BrandId = citroen.Id, BasePrice = 10000, Model = "C1" , EngineId = gas2.Id , Engine = gas2 };
-            Car citroen2 = new Car() { Id = 4, BrandId = citroen.Id, BasePrice = 15000, Model = "C3" , EngineId = gas2.Id , Engine = gas2 };
-            Car audi1 = new Car() { Id = 5, BrandId = audi.Id, BasePrice = 20000, Model = "A3", EngineId = gas1.Id , Engine = gas1 };
-            Car audi2 = new Car() { Id = 6, BrandId = audi.Id, BasePrice = 25000, Model = " A4", EngineId = diesel1.Id , Engine = diesel1 };
-            Car ford1 = new Car() { Id = 7, BrandId = ford.Id, BasePrice=9000, Model = "Mondeo", EngineId = gas1.Id , Engine = gas1 };
+            Car bmw1 = new Car() { Id = 1, BrandId = bmw.Id, BasePrice = 20000, Model = "1 series", EngineId=gas2.Id };
+            Car bmw2 = new Car() { Id = 2, BrandId = bmw.Id, BasePrice = 30000, Model = "5 series" , EngineId = diesel1.Id };
+            Car citroen1 = new Car() { Id = 3, BrandId = citroen.Id, BasePrice = 10000, Model = "C1" , EngineId = gas2.Id  };
+            Car citroen2 = new Car() { Id = 4, BrandId = citroen.Id, BasePrice = 15000, Model = "C3" , EngineId = gas2.Id  };
+            Car audi1 = new Car() { Id = 5, BrandId = audi.Id, BasePrice = 20000, Model = "A3", EngineId = gas1.Id  };
+            Car audi2 = new Car() { Id = 6, BrandId = audi.Id, BasePrice = 25000, Model = " A4", EngineId = diesel1.Id  };
+            Car ford1 = new Car() { Id = 7, BrandId = ford.Id, BasePrice=9000, Model = "Mondeo", EngineId = gas1.Id  };
 
             modelBuilder.Entity<Engine>().HasData(gas1, gas2, diesel1);
             modelBuilder.Entity<Brand>().HasData(bmw, citroen, audi,ford);
