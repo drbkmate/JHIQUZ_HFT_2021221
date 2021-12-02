@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JHIQUZ_HFT_2021221.Data\JHIQUZ_HFT_2021221.Data.csproj" />
     <ProjectReference Include="..\JHIQUZ_HFT_2021221.Models\JHIQUZ_HFT_2021221.Models.csproj" />
   </ItemGroup>
 
