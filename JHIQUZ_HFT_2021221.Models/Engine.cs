@@ -17,14 +17,16 @@ namespace JHIQUZ_HFT_2021221.Models
 
         [Required]
         public int Ccm { get; set; }
-
-        //
-        [NotMapped]
-        public virtual Car Car { get; set; }
-        public int CarId { get; set; }
-
         //
         public FuelType Fuel { get; set; }
+        //
+        [NotMapped]
+        public virtual ICollection<Car> Cars { get; set; }
+        public Engine()
+        {
+            Cars = new HashSet<Car>();
+        }
+
 
     }
 
