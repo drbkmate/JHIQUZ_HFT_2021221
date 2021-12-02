@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JHIQUZ_HFT_2021221.Logic
 {
-    [Route("[controller")]
+    [Route("[controller]")]
     [ApiController]
     public class EngineController : ControllerBase
     {
@@ -25,7 +25,12 @@ namespace JHIQUZ_HFT_2021221.Logic
         {
             return logic.ReadAll();
         }
-
+        //URL: /engine/{engineId}
+        [HttpGet("{engineId}")]
+        public Engine ReadOneEngine([FromRoute] int engineId)
+        {
+            return logic.ReadOne(engineId);
+        }
         //
         // URL: /engine
         [HttpPost]
@@ -35,7 +40,7 @@ namespace JHIQUZ_HFT_2021221.Logic
         }
 
         //OK    
-        //URL: /engine/{carId}
+        //URL: /engine/{engineId}
         [HttpDelete("{engineId}")]
         public void DeleteEngine([FromRoute] int engineId)
         {
