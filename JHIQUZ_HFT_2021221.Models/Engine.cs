@@ -24,9 +24,12 @@ namespace JHIQUZ_HFT_2021221.Models
         [JsonIgnore]
         [NotMapped]
         public virtual ICollection<Car> Cars { get; set; }
+        [NotMapped]
+        private static int IdCount = 0;
         public Engine()
         {
             Cars = new HashSet<Car>();
+            Id = ++IdCount;
         }
 
 
