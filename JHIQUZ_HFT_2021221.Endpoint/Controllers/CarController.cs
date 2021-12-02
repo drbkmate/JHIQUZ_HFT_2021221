@@ -34,9 +34,9 @@ namespace JHIQUZ_HFT_2021221.Endpoint.Controllers
         //
         //URL: /car/{carId}
         [HttpGet("{carId}")]
-        public IEnumerable<Car> ReadOneCar([FromRoute] int carId)
+        public Car ReadOneCar([FromRoute] int carId)
         {
-            return logic.ReadAll();
+            return logic.ReadOne(carId);
         }
 
         //NOK
