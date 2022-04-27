@@ -16,7 +16,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "car")
+        public RestService(string baseurl, string pingableEndpoint = "swagger")
         {
             bool isOk = false;
             do
