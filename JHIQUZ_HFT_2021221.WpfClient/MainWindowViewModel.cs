@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using JHIQUZ_HFT_2021221.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,19 @@ using System.Windows.Input;
 
 namespace JHIQUZ_HFT_2021221.WpfClient
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : ObservableRecipient
     {
         public RestCollection<Car> Cars { get; set; }
+        private Car selectedCar;
+
+        public Car SelectedCar
+        {
+            get { return selectedCar; }
+            set { SetProperty(ref selectedCar, value);
+                (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+            }
+        }
+
         public ICommand CreateCarCommand { get; set; }
         public ICommand DeleteCarCommand { get; set; }
         public ICommand UpdateCarCommand { get; set; }
@@ -22,11 +33,24 @@ namespace JHIQUZ_HFT_2021221.WpfClient
             {
                 Cars.Add(new Car()
                 {
-                    Model = "Ssangyong",
-                    Id = 10
-                });
+                    Model = "M240i",
+                    Id = 100,
+                    BrandId = 1,
+                    BasePrice = 35000,
+                    EngineId = 1
+                }) ;
             }
-);
+            );          
+            DeleteCarCommand = new RelayCommand(
+            () =>
+            {
+                Cars.Delete(SelectedCar.Id);
+            },
+            () =>
+            {
+              return SelectedCar != null;  
+            }
+            );
         }
     }
 }
