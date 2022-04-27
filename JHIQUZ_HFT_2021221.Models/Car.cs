@@ -12,7 +12,7 @@ namespace JHIQUZ_HFT_2021221.Models
     public class Car 
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [MaxLength(100)]
