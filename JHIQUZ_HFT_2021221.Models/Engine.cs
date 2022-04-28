@@ -13,7 +13,7 @@ namespace JHIQUZ_HFT_2021221.Models
     public class Engine 
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
