@@ -20,14 +20,16 @@ namespace JHIQUZ_HFT_2021221.WpfClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        public CarPage carPage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            carPage = new CarPage();
         }
 
         private void CarTable_Click(object sender, RoutedEventArgs e)
         {
-
+            TableField.Content = carPage;
         }
 
         private void BrandTable_Click(object sender, RoutedEventArgs e)
