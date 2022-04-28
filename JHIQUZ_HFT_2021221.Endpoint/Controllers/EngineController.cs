@@ -1,5 +1,7 @@
-﻿using JHIQUZ_HFT_2021221.Models;
+﻿using JHIQUZ_HFT_2021221.Endpoint.Services;
+using JHIQUZ_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace JHIQUZ_HFT_2021221.Logic
     public class EngineController : ControllerBase
     {
         private IEngineLogic logic;
+        IHubContext<SignalRHub> hub;
 
         public EngineController(IEngineLogic logic)
         {
@@ -37,6 +40,7 @@ namespace JHIQUZ_HFT_2021221.Logic
         public void CreateEngine(Engine engine)
         {
             logic.Create(engine);
+            this.hub.Clients.All.SendAsync("EngineCreated", engine);
         }
 
     
@@ -44,13 +48,16 @@ namespace JHIQUZ_HFT_2021221.Logic
         [HttpDelete("{engineId}")]
         public void DeleteEngine([FromRoute] int engineId)
         {
+            var engineToDel = this.logic.ReadOne(engineId);
             logic.Delete(engineId);
+            this.hub.Clients.All.SendAsync("EngineDeleted", engineToDel);
         }
 
         [HttpPut]
         public void UpdateEngine([FromBody] Engine engine)
         {
             logic.Update(engine);
+            this.hub.Clients.All.SendAsync("EngineUpdated", engine);
         }
     }
 }

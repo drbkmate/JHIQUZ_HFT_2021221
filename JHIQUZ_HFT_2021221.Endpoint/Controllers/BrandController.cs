@@ -1,5 +1,7 @@
-﻿using JHIQUZ_HFT_2021221.Models;
+﻿using JHIQUZ_HFT_2021221.Endpoint.Services;
+using JHIQUZ_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace JHIQUZ_HFT_2021221.Logic
     public class BrandController : ControllerBase
     {
         private IBrandLogic logic;
+        IHubContext<SignalRHub> hub;
 
         public BrandController(IBrandLogic logic)
         {
@@ -38,6 +41,7 @@ namespace JHIQUZ_HFT_2021221.Logic
         public void CreateBrand(Brand brand)
         {
             logic.Create(brand);
+            this.hub.Clients.All.SendAsync("BrandCreated", brand);
         }
 
   
@@ -45,13 +49,16 @@ namespace JHIQUZ_HFT_2021221.Logic
         [HttpDelete("{brandId}")]
         public void DeleteBrand([FromRoute] int brandId)
         {
+            var brandToDel = this.logic.ReadOne(brandId);
             logic.Delete(brandId);
+            this.hub.Clients.All.SendAsync("BrandDeleted", brandToDel);
         }
 
         [HttpPut]
         public void UpdateBrand([FromBody] Brand brand)
         {
             logic.Update(brand);
+            this.hub.Clients.All.SendAsync("BrandUpdated", brand);
         }
     }
 }
