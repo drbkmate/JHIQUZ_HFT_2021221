@@ -10,6 +10,7 @@
     <Page.DataContext>
         <local:MainWindowBrandViewModel/>
     </Page.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

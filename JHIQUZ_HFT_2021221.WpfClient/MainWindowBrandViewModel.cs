@@ -24,8 +24,9 @@ namespace JHIQUZ_HFT_2021221.WpfClient
                 {
                     selectedBrand = new Brand()
                     {
-                        Name = value.Name
-
+                        Name = value.Name,
+                        Id = value.Id,
+                        Cars = value.Cars
                     };
                     OnPropertyChanged();
                     (DeleteBrandCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -65,7 +66,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
                 return SelectedBrand != null;
             }
             );
-            SelectedBrand = new Brand(); //nem dob null ref. exceptiont ha nincs kiválasztva semmi
+            SelectedBrand = new Brand(); 
         }
     }
 }
