@@ -43,13 +43,13 @@ namespace JHIQUZ_HFT_2021221.WpfClient
         public ICommand UpdateCarCommand { get; set; }
         public MainWindowViewModel()
         {
+            
             Cars = new RestCollection<Car>("http://localhost:51322/", "car");
             CreateCarCommand = new RelayCommand(() =>
             {
                 Cars.Add(new Car()
                 {
                     Model = "M240i",
-                    Id = 100,
                     BrandId = 1,
                     BasePrice = 35000,
                     EngineId = 1
@@ -72,6 +72,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
               return SelectedCar != null;  
             }
             );
+            SelectedCar = new Car(); //nem dob null ref. exceptiont ha nincs kiválasztva semmi
         }
     }
 }
