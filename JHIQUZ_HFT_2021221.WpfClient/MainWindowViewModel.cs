@@ -58,8 +58,8 @@ namespace JHIQUZ_HFT_2021221.WpfClient
             );
 
             UpdateCarCommand = new RelayCommand(()=> 
-            { 
-            
+            {
+                Cars.Update(SelectedCar);
             });
 
             DeleteCarCommand = new RelayCommand(
