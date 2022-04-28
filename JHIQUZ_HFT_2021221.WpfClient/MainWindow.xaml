@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JHIQUZ_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="Car Editor" Height="600" Width="800">
+        Title="Car Editor" Height="650" Width="800">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -31,7 +31,7 @@
             <Label Content="EngineId" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedCar.EngineId}" Padding="10" Margin="0,0,0,0"/>
             <Label Content="Id" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedCar.EngineId}" Padding="10" Margin="0,0,0,30" IsEnabled="False"/>
+            <TextBox Text="{Binding SelectedCar.EngineId}" Padding="10" Margin="0,0,0,15" IsEnabled="False"/>
             <Button Content="Create car" Command="{Binding CreateCarCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10"/>
             <Button Content="Update car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10"/>
