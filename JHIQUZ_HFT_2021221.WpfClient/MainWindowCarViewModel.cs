@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace JHIQUZ_HFT_2021221.WpfClient
 {
-    public class MainWindowViewModel : ObservableRecipient
+    public class MainWindowCarViewModel : ObservableRecipient
     {
         public RestCollection<Car> Cars { get; set; }
         private Car selectedCar;
@@ -41,7 +41,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
         public ICommand CreateCarCommand { get; set; }
         public ICommand DeleteCarCommand { get; set; }
         public ICommand UpdateCarCommand { get; set; }
-        public MainWindowViewModel()
+        public MainWindowCarViewModel()
         {
             
             Cars = new RestCollection<Car>("http://localhost:51322/", "car", "hub");

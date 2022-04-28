@@ -21,10 +21,12 @@ namespace JHIQUZ_HFT_2021221.WpfClient
     public partial class MainWindow : Window
     {
         public CarPage carPage { get; set; }
+        public BrandPage brandPage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             carPage = new CarPage();
+            brandPage = new BrandPage();
         }
 
         private void CarTable_Click(object sender, RoutedEventArgs e)
@@ -34,7 +36,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
 
         private void BrandTable_Click(object sender, RoutedEventArgs e)
         {
-
+            TableField.Content = brandPage;
         }
 
         private void EngineTable_Click(object sender, RoutedEventArgs e)
