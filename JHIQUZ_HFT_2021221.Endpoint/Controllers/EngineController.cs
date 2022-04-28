@@ -17,9 +17,10 @@ namespace JHIQUZ_HFT_2021221.Logic
         private IEngineLogic logic;
         IHubContext<SignalRHub> hub;
 
-        public EngineController(IEngineLogic logic)
+        public EngineController(IEngineLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         // URL: /engine

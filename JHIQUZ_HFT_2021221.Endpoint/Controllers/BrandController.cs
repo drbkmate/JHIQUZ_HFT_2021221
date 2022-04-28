@@ -17,9 +17,10 @@ namespace JHIQUZ_HFT_2021221.Logic
         private IBrandLogic logic;
         IHubContext<SignalRHub> hub;
 
-        public BrandController(IBrandLogic logic)
+        public BrandController(IBrandLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         // URL: /brand
