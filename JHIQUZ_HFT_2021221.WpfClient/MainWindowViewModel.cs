@@ -44,7 +44,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
         public MainWindowViewModel()
         {
             
-            Cars = new RestCollection<Car>("http://localhost:51322/", "car");
+            Cars = new RestCollection<Car>("http://localhost:51322/", "car", "hub");
             CreateCarCommand = new RelayCommand(() =>
             {
                 Cars.Add(new Car()
