@@ -22,11 +22,13 @@ namespace JHIQUZ_HFT_2021221.WpfClient
     {
         public CarPage carPage { get; set; }
         public BrandPage brandPage { get; set; }
+        public EnginePage enginePage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             carPage = new CarPage();
             brandPage = new BrandPage();
+            enginePage = new EnginePage();
         }
 
         private void CarTable_Click(object sender, RoutedEventArgs e)
@@ -41,7 +43,7 @@ namespace JHIQUZ_HFT_2021221.WpfClient
 
         private void EngineTable_Click(object sender, RoutedEventArgs e)
         {
-
+            TableField.Content = enginePage;
         }
     }
 }
