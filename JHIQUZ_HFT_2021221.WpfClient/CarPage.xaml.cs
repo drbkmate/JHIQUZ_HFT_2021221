@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace JHIQUZ_HFT_2021221.WpfClient
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CarPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CarPage : Page
     {
-        public MainWindow()
+        public CarPage()
         {
             InitializeComponent();
-        }
-
-        private void CarTable_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BrandTable_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void EngineTable_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

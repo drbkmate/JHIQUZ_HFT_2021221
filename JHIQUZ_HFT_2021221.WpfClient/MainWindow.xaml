@@ -10,31 +10,17 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Model}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Column="1">
-            <Label Content="Model" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedCar.Model}" Padding="10" Margin="0,0,0,0"/>
-            <Label Content="Base Price" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedCar.BasePrice}" Padding="10" Margin="0,0,0,0"/>
-            <Label Content="BrandId" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedCar.BrandId}" Padding="10" Margin="0,0,0,0"/>
-            <Label Content="EngineId" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedCar.EngineId}" Padding="10" Margin="0,0,0,0"/>
-            <Label Content="Id" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedCar.EngineId}" Padding="10" Margin="0,0,0,15" IsEnabled="False"/>
-            <Button Content="Create car" Command="{Binding CreateCarCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+            <Button Click="CarTable_Click" x:Name="CarTable" Content="Car Table" Padding="5" Margin="5"/>
+            <Button Click="BrandTable_Click" x:Name="BrandTable" Content="Brand Table" Padding="5" Margin="5"/>
+            <Button Click="EngineTable_Click" x:Name="EngineTable" Content="Engine Table" Padding="5" Margin="5"/>
         </StackPanel>
+        <Frame Grid.Row="1" Grid.Column="0" x:Name="TableField" />
+        
+
     </Grid>
 </Window>
