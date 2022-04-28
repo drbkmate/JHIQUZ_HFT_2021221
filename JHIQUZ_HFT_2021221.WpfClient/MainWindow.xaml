@@ -21,7 +21,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCar}">
+            <Label Content="Model" Background="LightBlue" Padding="10"/>
+            <TextBox Text="{Binding Model}" Padding="10" Margin="0,0,0,30"/>
+            
             <Button Content="Create car" Command="{Binding CreateCarCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10"/>
             <Button Content="Update car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10"/>
