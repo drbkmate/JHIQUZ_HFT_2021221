@@ -32,6 +32,8 @@ namespace JHIQUZ_HFT_2021221.Endpoint
             services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<CarShopContext, CarShopContext>();
+            //
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +52,7 @@ namespace JHIQUZ_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers(); //hogy controllereket használjon
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
