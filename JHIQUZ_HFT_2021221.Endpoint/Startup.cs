@@ -1,4 +1,5 @@
 using JHIQUZ_HFT_2021221.Data;
+using JHIQUZ_HFT_2021221.Endpoint.Services;
 using JHIQUZ_HFT_2021221.Logic;
 using JHIQUZ_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
