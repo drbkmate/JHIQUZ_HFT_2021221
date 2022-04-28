@@ -18,8 +18,23 @@ namespace JHIQUZ_HFT_2021221.WpfClient
         public Car SelectedCar
         {
             get { return selectedCar; }
-            set { SetProperty(ref selectedCar, value);
-                (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+            set {
+                if (value != null)
+                {
+                    selectedCar = new Car()
+                    {
+                        Model = value.Model,
+                        Id = value.Id,
+                        BasePrice = value.BasePrice,
+                        Brand = value.Brand,
+                        BrandId = value.BrandId,
+                        Engine = value.Engine,
+                        EngineId = value.EngineId
+                    };
+                    OnPropertyChanged();
+                    (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+                
             }
         }
 
@@ -40,7 +55,13 @@ namespace JHIQUZ_HFT_2021221.WpfClient
                     EngineId = 1
                 }) ;
             }
-            );          
+            );
+
+            UpdateCarCommand = new RelayCommand(()=> 
+            { 
+            
+            });
+
             DeleteCarCommand = new RelayCommand(
             () =>
             {
