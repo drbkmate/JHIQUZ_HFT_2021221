@@ -3,7 +3,21 @@ const connection;
 getdata();
 
 
-
+function setup SignalR(){
+    connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:51322/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+}
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
+    }
+};
 
 async function getdata() {
     await fetch('http://localhost:51322/car')
