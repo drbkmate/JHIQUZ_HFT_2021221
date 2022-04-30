@@ -1,13 +1,16 @@
 ﻿let cars = [];
-fetch('http://localhost:51322/car')
-    .then(x => x.json())
-    .then(y => {
-        cars = y
-        console.log(cars);
-        display();
-    });
 
+getdata();
 
+async function getdata() {
+    await fetch('http://localhost:51322/car')
+        .then(x => x.json())
+        .then(y => {
+            cars = y
+            console.log(cars);
+            display();
+        });
+}
 
 function display() {
     cars.forEach(t => {
@@ -34,7 +37,7 @@ function create() {
             }),
     })
     .then(response => response)
-    .then(data => { console.log('Success: ', data); })
+    .then(data => { console.log('Success: ', data); getdata(); })
     .catch((error) => { console.error('Error: ', error); });
 
    
