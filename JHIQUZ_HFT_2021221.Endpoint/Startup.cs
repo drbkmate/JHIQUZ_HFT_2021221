@@ -54,7 +54,7 @@ namespace JHIQUZ_HFT_2021221.Endpoint
                 .AllowCredentials()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithOrigins("http://localhost:51322") //egyeznie kell launchSettings.js-be
+                .WithOrigins("http://localhost:61242") //egyeznie kell JSClient launchSettings.js-be
             );
             //
 
