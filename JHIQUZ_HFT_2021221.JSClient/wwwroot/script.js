@@ -8,6 +8,10 @@ function setup SignalR(){
         .withUrl("http://localhost:51322/hub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
+    connection.on("CarCreated", (user, message) => {
+        console.log(user);
+        console.log(message);
+    });
 }
 async function start() {
     try {
