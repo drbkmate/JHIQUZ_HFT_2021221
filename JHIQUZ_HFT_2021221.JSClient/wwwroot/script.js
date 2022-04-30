@@ -16,3 +16,27 @@ function display() {
         console.log(t.model)
     });
 }
+
+function create() {
+    let model = document.getElementById('model').value;
+    let brandid = document.getElementById('brandid').value;
+
+    let baseprice = document.getElementById('baseprice').value;
+    let engineid = document.getElementById('engineid').value;
+    fetch('http://localhost:51322/car', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify({
+            model: model,
+            brandId: brandid,
+            engineId: engineid,
+            basePrice: baseprice
+            }),
+    })
+    .then(response => response)
+    .then(data => { console.log('Success: ', data); })
+    .catch((error) => { console.error('Error: ', error); });
+
+   
+
+}
